@@ -1,10 +1,9 @@
 import React from 'react'
-import articles from './articles.json'
 import {Routes, Route, useParams } from 'react-router-dom';
 
-export default function ProductDetail() {
+export default function ProductDetail(props) {
   const { productId } = useParams();
-  const product = articles.find(product => product.id == productId);
+  const product = props.products.find(product => product.id == productId);
 return (
   <div className='card col m-5 d-flex flex-column justify-content-center align-items-center' style={{maxWidth: '25vh'}}>
         {product.sale && <span className='notify-badge'>Sale</span>}

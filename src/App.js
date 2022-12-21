@@ -1,11 +1,11 @@
 import React from "react";
-import Navbar from './Navbar';
-import Header from "./Header";
-import Container from "./Container";
-import Footer from "./Footer";
-import ProductDetail from "./ProductDetail";
+import Navbar from './home/Navbar';
+import Header from "./home/Header";
+import Container from "./home/Container";
+import Footer from "./home/Footer";
+import ProductDetail from "./products/ProductDetail";
 import {Routes, Route } from 'react-router-dom';
-
+import articles from './articles.json'
 
 export default function App() {
     return (
@@ -13,8 +13,7 @@ export default function App() {
             <Navbar />
             <Routes>
                 <Route exact path="/" element={<div><Header /><Container /></div>} />
-                <Route path="/:productId" element={<ProductDetail  />} />
-
+                <Route path="/:productId" element={<ProductDetail  products={articles}/>} />
             </Routes>
             <Footer />
         </div>
